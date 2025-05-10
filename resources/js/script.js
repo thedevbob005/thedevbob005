@@ -1,5 +1,12 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Fix for animations - ensure all content is visible regardless of animation state
+    document.querySelectorAll('.fade-in, .slide-in-right, .slide-in-left, .scale-up, .reveal').forEach(el => {
+        // Make sure all elements with animation classes are visible
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+    });
+
     // Update copyright year
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
@@ -25,10 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Reveal animations on scroll
+    // Modified reveal function to ensure elements are always visible
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = function() {
         for (let i = 0; i < revealElements.length; i++) {
+            revealElements[i].style.opacity = '1'; // Ensure visibility
             const windowHeight = window.innerHeight;
             const elementTop = revealElements[i].getBoundingClientRect().top;
             const elementVisible = 150;
@@ -41,13 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll(); // Initial check on page load
-
-    // Add reveal class to section elements
-    document.querySelectorAll('section').forEach(section => {
-        if (!section.classList.contains('reveal')) {
-            section.classList.add('reveal');
-        }
-    });
 
     // Header scroll effect
     const header = document.querySelector('.header');
@@ -87,39 +88,21 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop;
     });
 
-    // Add staggered animation delays to elements
-    const staggeredElements = [
-        '.music-platforms .platform-card',
-        '.social-links .social-link'
-    ];
-
-    staggeredElements.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach((element, index) => {
-            element.style.animationDelay = `${index * 0.1}s`;
-        });
-    });
-
-    // Add animated skill bars
+    // Modified animated skill bars to ensure visibility
     const animateSkills = function() {
         const skills = document.querySelectorAll('.skill-progress');
         if (!skills.length) return;
 
-        const skillsSection = document.querySelector('.skills');
-        const skillsPosition = skillsSection.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-
-        if (skillsPosition < screenPosition) {
-            skills.forEach(skill => {
-                skill.style.width = skill.style.width || '0%';
-                const targetWidth = skill.parentElement.parentElement.querySelector('.skill-name').nextElementSibling.style.width;
-                skill.style.width = targetWidth;
-            });
-        }
+        skills.forEach(skill => {
+            // Get the width directly from the style attribute set in HTML
+            const width = skill.getAttribute('style') ?
+                          skill.getAttribute('style').replace('width:', '').trim() :
+                          '85%'; // Default fallback width
+            skill.style.width = width;
+        });
     };
 
-    window.addEventListener('scroll', animateSkills);
-    animateSkills(); // Initial check
+    animateSkills(); // Run once on page load
 
     // Mobile navigation toggle (for responsive design)
     const createMobileNav = function() {

@@ -4849,22 +4849,22 @@ section {
 
 /* Animation Classes */
 .fade-in {
-  opacity: 0;
+  opacity: 1; /* Changed from 0 to 1 to make elements visible by default */
   animation: fadeIn 1s ease forwards;
 }
 
 .slide-in-right {
-  opacity: 0;
+  opacity: 1; /* Changed from 0 to 1 to make elements visible by default */
   animation: slideInRight 1s ease forwards;
 }
 
 .slide-in-left {
-  opacity: 0;
+  opacity: 1; /* Changed from 0 to 1 to make elements visible by default */
   animation: slideInLeft 1s ease forwards;
 }
 
 .scale-up {
-  opacity: 0;
+  opacity: 1; /* Changed from 0 to 1 to make elements visible by default */
   animation: scaleUp 1s ease forwards;
 }
 
@@ -4906,8 +4906,8 @@ section {
 
 /* Reveal animations on scroll */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1; /* Changed from 0 to 1 to make elements visible by default */
+  transform: translateY(0); /* Reset transform to avoid hidden elements */
   transition: all 0.8s ease;
 }
 
