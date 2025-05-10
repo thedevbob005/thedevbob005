@@ -44,15 +44,15 @@
 </head>
 <body>
     <header class="header">
-        <div class="container">
+        <div class="nav-container">
+            <a href="#" class="logo">Naamnei</a>
             <nav class="nav">
-                <div class="logo">Naamnei</div>
                 <ul class="nav-links">
                     <li><a href="#hero" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#music" class="nav-link">Music</a></li>
-                    <li><a href="#programming" class="nav-link">Programming</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#connect" class="nav-link">Connect</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -64,155 +64,171 @@
     </header>
 
     <main>
-        <!-- Hero Section with animated elements -->
-        <section id="hero" class="hero">
-            <div class="container">
+        <!-- Hero Section with Apple-style animations -->
+        <section id="hero" class="hero section">
+            <div class="hero-container">
                 <div class="hero-content">
-                    <div class="profile-image-container">
-                        <div class="profile-image-shape">
+                    <div class="profile-image-wrapper">
+                        <div class="profile-image-container">
                             <img src="/resources/images/naamnei.jpg" alt="Naamnei" class="profile-image">
                         </div>
-                        <div class="orb orb-1"></div>
-                        <div class="orb orb-2"></div>
-                        <div class="orb orb-3"></div>
+                        <div class="orbs-container">
+                            <div class="orb orb-1"></div>
+                            <div class="orb orb-2"></div>
+                            <div class="orb orb-3"></div>
+                        </div>
                     </div>
-                    <h1 class="title animate-text">Naamnei</h1>
-                    <p class="subtitle animate-text">Lyricist & Programmer</p>
+                    <h1 class="hero-title" data-scroll>Naamnei</h1>
+                    <p class="hero-subtitle" data-scroll>Lyricist & Programmer</p>
                     <div class="scroll-indicator">
-                        <span class="scroll-text">Scroll Down</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <span>Scroll to explore</span>
+                        <div class="scroll-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about section-padding">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">About Me</h2>
-                <div class="about-content animate-on-scroll">
-                    <p>Naamnei is a songwriter and programmer who creates new music every month. With a passion for lyrical expression and technical innovation, he combines creativity and logic to produce unique experiences.</p>
-                </div>
-                <div class="skills animate-on-scroll">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <h3>Songwriting</h3>
-                        <p>Crafting meaningful lyrics and melodies</p>
+        <section id="about" class="about section">
+            <div class="section-container">
+                <div class="section-content">
+                    <h2 class="section-title" data-scroll>About Me</h2>
+                    <div class="text-block" data-scroll>
+                        <p>Naamnei is a songwriter and programmer who creates new music every month. With a passion for lyrical expression and technical innovation, he combines creativity and logic to produce unique experiences.</p>
                     </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
+
+                    <div class="skill-cards" data-scroll>
+                        <div class="skill-card" data-scroll>
+                            <div class="skill-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h3>Songwriting</h3>
+                            <p>Crafting meaningful lyrics and melodies</p>
                         </div>
-                        <h3>Programming</h3>
-                        <p>Building digital solutions with clean code</p>
+                        <div class="skill-card" data-scroll>
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Programming</h3>
+                            <p>Building digital solutions with clean code</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Music Section -->
-        <section id="music" class="music section-padding">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Music</h2>
-                <p class="section-subtitle animate-on-scroll">New music every month for your enjoyment!</p>
+        <section id="music" class="music section">
+            <div class="section-container">
+                <div class="section-content">
+                    <h2 class="section-title" data-scroll>Music</h2>
+                    <p class="section-subtitle" data-scroll>New music every month for your enjoyment</p>
 
-                <div class="music-platforms animate-on-scroll">
-                    <a href="https://soundcloud.com/naamnei" class="platform-link" target="_blank">
-                        <div class="platform-icon"><i class="fab fa-soundcloud"></i></div>
-                        <span>SoundCloud</span>
-                    </a>
-                    <a href="https://open.spotify.com/artist/naamnei" class="platform-link" target="_blank">
-                        <div class="platform-icon"><i class="fab fa-spotify"></i></div>
-                        <span>Spotify</span>
-                    </a>
-                    <a href="https://music.apple.com/artist/naamnei" class="platform-link" target="_blank">
-                        <div class="platform-icon"><i class="fab fa-apple"></i></div>
-                        <span>Apple Music</span>
-                    </a>
-                    <a href="https://music.amazon.com/artists/naamnei" class="platform-link" target="_blank">
-                        <div class="platform-icon"><i class="fab fa-amazon"></i></div>
-                        <span>Amazon Music</span>
-                    </a>
-                    <a href="https://tidal.com/artist/naamnei" class="platform-link" target="_blank">
-                        <div class="platform-icon"><i class="fas fa-music"></i></div>
-                        <span>Tidal</span>
-                    </a>
-                </div>
+                    <div class="platform-links" data-scroll>
+                        <a href="https://soundcloud.com/naamnei" class="platform-link" target="_blank" data-scroll>
+                            <div class="platform-icon"><i class="fab fa-soundcloud"></i></div>
+                            <span>SoundCloud</span>
+                        </a>
+                        <a href="https://open.spotify.com/artist/naamnei" class="platform-link" target="_blank" data-scroll>
+                            <div class="platform-icon"><i class="fab fa-spotify"></i></div>
+                            <span>Spotify</span>
+                        </a>
+                        <a href="https://music.apple.com/artist/naamnei" class="platform-link" target="_blank" data-scroll>
+                            <div class="platform-icon"><i class="fab fa-apple"></i></div>
+                            <span>Apple Music</span>
+                        </a>
+                        <a href="https://music.amazon.com/artists/naamnei" class="platform-link" target="_blank" data-scroll>
+                            <div class="platform-icon"><i class="fab fa-amazon"></i></div>
+                            <span>Amazon Music</span>
+                        </a>
+                        <a href="https://tidal.com/artist/naamnei" class="platform-link" target="_blank" data-scroll>
+                            <div class="platform-icon"><i class="fas fa-music"></i></div>
+                            <span>Tidal</span>
+                        </a>
+                    </div>
 
-                <div class="featured-tracks animate-on-scroll">
-                    <h3>Featured Tracks</h3>
-                    <div class="tracks-container">
-                        <!-- Track cards would be dynamically loaded or added here -->
-                        <div class="track-card">
-                            <div class="track-artwork"></div>
-                            <h4 class="track-title">Track Title 1</h4>
-                            <p class="track-release">Released: January 2023</p>
-                        </div>
-                        <div class="track-card">
-                            <div class="track-artwork"></div>
-                            <h4 class="track-title">Track Title 2</h4>
-                            <p class="track-release">Released: February 2023</p>
-                        </div>
-                        <div class="track-card">
-                            <div class="track-artwork"></div>
-                            <h4 class="track-title">Track Title 3</h4>
-                            <p class="track-release">Released: March 2023</p>
+                    <div class="featured-section" data-scroll>
+                        <h3 class="featured-title" data-scroll>Latest Releases</h3>
+                        <div class="tracks-grid">
+                            <div class="track-card" data-scroll>
+                                <div class="track-artwork"></div>
+                                <h4 class="track-title">Track Title 1</h4>
+                                <p class="track-info">Released: January 2023</p>
+                            </div>
+                            <div class="track-card" data-scroll>
+                                <div class="track-artwork"></div>
+                                <h4 class="track-title">Track Title 2</h4>
+                                <p class="track-info">Released: February 2023</p>
+                            </div>
+                            <div class="track-card" data-scroll>
+                                <div class="track-artwork"></div>
+                                <h4 class="track-title">Track Title 3</h4>
+                                <p class="track-info">Released: March 2023</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Programming Section -->
-        <section id="programming" class="programming section-padding">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Programming</h2>
-                <div class="programming-content animate-on-scroll">
-                    <p>Beyond music, I'm passionate about programming and building digital experiences.</p>
-                </div>
+        <!-- Projects Section -->
+        <section id="projects" class="projects section">
+            <div class="section-container">
+                <div class="section-content">
+                    <h2 class="section-title" data-scroll>Projects</h2>
+                    <p class="section-subtitle" data-scroll>Programming work and digital solutions</p>
 
-                <div class="projects-container animate-on-scroll">
-                    <div class="project-card">
-                        <div class="project-image"></div>
-                        <h3 class="project-title">Project 1</h3>
-                        <p class="project-description">Description of project 1 showcasing programming skills.</p>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image"></div>
-                        <h3 class="project-title">Project 2</h3>
-                        <p class="project-description">Description of project 2 showcasing programming skills.</p>
+                    <div class="projects-grid">
+                        <div class="project-card" data-scroll>
+                            <div class="project-media"></div>
+                            <div class="project-details">
+                                <h3 class="project-title">Project One</h3>
+                                <p class="project-description">Description of the first programming project showcasing skills.</p>
+                            </div>
+                        </div>
+                        <div class="project-card reverse" data-scroll>
+                            <div class="project-media"></div>
+                            <div class="project-details">
+                                <h3 class="project-title">Project Two</h3>
+                                <p class="project-description">Description of the second programming project with technical details.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact section-padding">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Connect With Me</h2>
+        <!-- Connect Section -->
+        <section id="connect" class="connect section">
+            <div class="section-container">
+                <div class="section-content">
+                    <h2 class="section-title" data-scroll>Connect</h2>
+                    <p class="section-subtitle" data-scroll>Find me on social media</p>
 
-                <div class="social-links animate-on-scroll">
-                    <a href="https://instagram.com/naamnei" class="social-link" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://youtube.com/naamnei" class="social-link" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://twitter.com/NaamneiOriginal" class="social-link" target="_blank">
-                        <i class="fab fa-x-twitter"></i>
-                    </a>
+                    <div class="social-grid" data-scroll>
+                        <a href="https://instagram.com/naamnei" class="social-link" target="_blank" data-scroll>
+                            <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://youtube.com/naamnei" class="social-link" target="_blank" data-scroll>
+                            <div class="social-icon"><i class="fab fa-youtube"></i></div>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="https://twitter.com/NaamneiOriginal" class="social-link" target="_blank" data-scroll>
+                            <div class="social-icon"><i class="fab fa-x-twitter"></i></div>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2023 Naamnei. All rights reserved.</p>
-            </div>
+        <div class="footer-container">
+            <p>&copy; 2023 Naamnei. All rights reserved.</p>
         </div>
     </footer>
 
