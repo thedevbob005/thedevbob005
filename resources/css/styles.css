@@ -1,0 +1,875 @@
+/* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Syncopate:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #e42c6f;
+  --secondary-color: #3b82f6;
+  --tertiary-color: #10b981;
+  --background-color: #0f0f1a;
+  --text-color: #ffffff;
+  --accent-color: #f59e0b;
+  --font-main: 'Poppins', sans-serif;
+  --font-display: 'Syncopate', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+section {
+  padding: 5rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  position: relative;
+  color: var(--text-color);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  z-index: 9999;
+}
+
+*:hover {
+  cursor: none;
+}
+
+/* Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=');
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.3;
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 15, 26, 0.8);
+  transition: padding 0.3s;
+}
+
+header.scrolled {
+  padding: 1rem 2rem;
+  background: rgba(15, 15, 26, 0.95);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li {
+  margin-left: 2rem;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 var(--primary-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 var(--secondary-color);
+  clip: rect(24px, 450px, 100px, 0);
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(16px, 9999px, 64px, 0);
+  }
+  20% {
+    clip: rect(30px, 9999px, 36px, 0);
+  }
+  40% {
+    clip: rect(76px, 9999px, 98px, 0);
+  }
+  60% {
+    clip: rect(22px, 9999px, 48px, 0);
+  }
+  80% {
+    clip: rect(45px, 9999px, 10px, 0);
+  }
+  100% {
+    clip: rect(81px, 9999px, 37px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(96px, 9999px, 44px, 0);
+  }
+  20% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  40% {
+    clip: rect(64px, 9999px, 82px, 0);
+  }
+  60% {
+    clip: rect(22px, 9999px, 91px, 0);
+  }
+  80% {
+    clip: rect(84px, 9999px, 33px, 0);
+  }
+  100% {
+    clip: rect(20px, 9999px, 57px, 0);
+  }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.7;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+.scroll-indicator p {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.scroll-arrow {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.scroll-arrow::before,
+.scroll-arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 2px;
+  background-color: var(--text-color);
+}
+
+.scroll-arrow::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.scroll-arrow::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Music Section */
+.music-section {
+  background: linear-gradient(180deg, var(--background-color), rgba(15, 25, 55, 1));
+}
+
+.music-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.music-platforms {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.platform-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.platform-link:hover {
+  transform: translateY(-5px);
+}
+
+.platform-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.3s ease;
+  background-position: center;
+  background-size: 65%;
+  background-repeat: no-repeat;
+}
+
+.spotify {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png');
+}
+
+.apple-music {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Apple_Music_icon.svg/2048px-Apple_Music_icon.svg.png');
+}
+
+.youtube-music {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Youtube_Music_icon.svg/1200px-Youtube_Music_icon.svg.png');
+}
+
+.soundcloud {
+  background-image: url('../images/soundcloud.png');
+  background-size: 80%;
+}
+
+.amazon-music {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Amazon_Music_logo.svg/1280px-Amazon_Music_logo.svg.png');
+  background-size: 80%;
+}
+
+.tidal {
+  background-image: url('../images/tidal.png');
+  background-size: 60%;
+}
+
+.platform-link:hover .platform-icon {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.featured-tracks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.track:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.track-artwork {
+  height: 200px;
+  background-color: #333;
+  background-image: url('https://placehold.co/400x400');
+  background-size: cover;
+  background-position: center;
+}
+
+.track-info {
+  padding: 1.5rem;
+}
+
+.track-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.track-info p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.track-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.track-link {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.track-link:hover {
+  opacity: 0.8;
+  color: white;
+}
+
+/* About Section */
+.about-section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(15, 25, 55, 1), var(--background-color));
+}
+.about-section > * {
+  margin: 0 auto;
+  width: 1200px;
+  max-width: 100%;
+}
+
+.about-content {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.about-text {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.about-image {
+  flex: 1;
+  height: 500px;
+  background-image: url('../images/profile-picture.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Section */
+.contact-section {
+  background: var(--background-color);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+}
+
+.social-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+  transition: background-color 0.3s ease;
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.instagram {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png');
+}
+
+.twitter {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/X_logo_2023_%28white%29.png/800px-X_logo_2023_%28white%29.png');
+}
+
+.social-link:hover .social-icon {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contact Person */
+.contact-person {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-person:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--primary-color, #e42c6f)20;
+}
+
+.person-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.person-info {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.person-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.person-role {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  letter-spacing: 0.05em;
+}
+
+.contact-email {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  position: relative;
+  width: fit-content;
+}
+
+.contact-email::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.contact-email:hover::after {
+  width: 100%;
+}
+
+.email-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .about-section {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .about-content {
+    padding-right: 0;
+  }
+
+  .about-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .featured-tracks {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-person {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .person-info {
+    text-align: center;
+  }
+
+  .contact-email {
+    margin: 0 auto;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide the old contact form styles, but keep for reference */
+.contact-form {
+  display: none;
+}
+
+/* Footer */
+footer {
+  background: rgba(10, 10, 20, 1);
+  padding: 3rem 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.footer-social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.copyright {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* Glitchy Music Notes */
+.music-note {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 5;
+  transition: transform 0.05s linear;
+  filter: drop-shadow(0 0 5px var(--primary-color));
+  /* Default state is hidden */
+  display: none;
+}
+
+/* Explicitly enable notes only in these sections */
+#music .music-note,
+#about .music-note,
+#contact .music-note {
+  display: block;
+}
+
+/* Extra protection for home and footer */
+#home .music-note,
+footer .music-note {
+  display: none !important;
+}
+
+.music-note svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--text-color);
+}
+
+.music-note.glitch {
+  animation: noteGlitch 4s infinite alternate-reverse;
+}
+
+@keyframes noteGlitch {
+  0%, 100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 5px var(--primary-color));
+  }
+  25% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px var(--secondary-color));
+    transform: translateX(5px) scale(1.1);
+  }
+  35% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 3px var(--tertiary-color));
+    transform: translateX(-3px) scale(0.95);
+  }
+  45% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 10px var(--accent-color));
+    transform: translateY(4px) scale(1.05);
+  }
+  65% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 5px var(--primary-color));
+    transform: translateY(-6px) scale(0.9);
+  }
+  85% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 12px var(--secondary-color));
+    transform: translate(3px, 3px) scale(1.15);
+  }
+}
+
+/* Notes are now added directly to specific sections */

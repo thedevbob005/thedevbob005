@@ -3,169 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naamnei</title>
-
-    <!-- mobile specific meta tags -->
-    <meta name="theme-color" content="#1f1f1f">
-    <meta name="msapplication-TileColor" content="#1f1f1f">
-    <meta name="msapplication-TileImage" content="/resources/images/favicon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Naamnei">
-
-    <!-- apple touch icon -->
-    <link rel="apple-touch-icon" href="/resources/images/favicon.png">
-
-    <!-- seo meta tags -->
-    <meta name="description" content="Naamnei is a song writer and a programmer.">
-    <meta name="author" content="Naamnei">
-    <meta name="keywords" content="Naamnei, Sayantan Bakshi, @NaamneiOriginal">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-
-    <!-- open graph meta tags -->
-    <meta property="og:title" content="Naamnei">
-    <meta property="og:description" content="Naamnei is a song writer and a programmer.">
-    <meta property="og:image" content="https://naamnei.dev/resources/images/og.png">
-    <meta property="og:url" content="https://naamnei.dev">
-
-    <!-- twitter card meta tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Naamnei">
-    <meta name="twitter:description" content="Naamnei is a song writer and a programmer.">
-    <meta name="twitter:image" content="https://naamnei.dev/resources/images/og.png">
-
-    <link rel="icon" type="image/png" href="resources/images/favicon.png">
-
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="/resources/css/style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Naamnei | Musician & Lyricist</title>
+    <meta name="description" content="Official website of Naamnei - Musician & Lyricist">
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.156.1/three.min.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="nav-container">
-            <a href="#" class="logo">Naamnei</a>
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="#hero" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#music" class="nav-link">Music</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#connect" class="nav-link">Connect</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </div>
+    <div class="noise-overlay"></div>
+    <div class="cursor"></div>
+
+    <header>
+        <div class="logo">NAAMNEI</div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#music" class="nav-link">Music</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Hero Section with Apple-style animations -->
-        <section id="hero" class="hero section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="profile-image-wrapper">
-                        <div class="profile-image-container">
-                            <img src="/resources/images/naamnei.jpg" alt="Naamnei" class="profile-image">
-                        </div>
-                        <div class="orbs-container">
-                            <div class="orb orb-1"></div>
-                            <div class="orb orb-2"></div>
-                            <div class="orb orb-3"></div>
-                        </div>
-                    </div>
-                    <h1 class="hero-title" data-scroll>Naamnei</h1>
-                    <p class="hero-subtitle" data-scroll>Lyricist & Programmer</p>
-                    <div class="scroll-indicator">
-                        <span>Scroll to explore</span>
-                        <div class="scroll-arrow">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="NAAMNEI">NAAMNEI</h1>
+                <p class="subtitle">Musician &nbsp;&nbsp;&nbsp; Lyricist &nbsp;&nbsp;</p>
+                <div class="scroll-indicator">
+                    <p>Scroll to explore</p>
+                    <div class="scroll-arrow"></div>
                 </div>
             </div>
+            <div class="hero-bg" id="canvas-container"></div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about section">
-            <div class="section-container">
-                <div class="section-content">
-                    <h2 class="section-title" data-scroll>About Me</h2>
-                    <div class="text-block" data-scroll>
-                        <p>Naamnei is a songwriter and programmer who creates new music every month. With a passion for lyrical expression and technical innovation, he combines creativity and logic to produce unique experiences.</p>
-                    </div>
-
-                    <div class="skill-cards" data-scroll>
-                        <div class="skill-card" data-scroll>
-                            <div class="skill-icon">
-                                <i class="fas fa-music"></i>
-                            </div>
-                            <h3>Songwriting</h3>
-                            <p>Crafting meaningful lyrics and melodies</p>
-                        </div>
-                        <div class="skill-card" data-scroll>
-                            <div class="skill-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3>Programming</h3>
-                            <p>Building digital solutions with clean code</p>
-                        </div>
-                    </div>
+        <section id="music" class="music-section">
+            <h2 class="section-title">Latest Releases</h2>
+            <div class="music-container">
+                <div class="music-platforms">
+                    <a href="https://open.spotify.com/artist/6BGXFOCNAAHKJesxr01OAI" target="_blank" class="platform-link">
+                        <div class="platform-icon spotify"></div>
+                        <span>Spotify</span>
+                    </a>
+                    <a href="https://music.apple.com/in/artist/naamnei/1804119154" target="_blank" class="platform-link">
+                        <div class="platform-icon apple-music"></div>
+                        <span>Apple Music</span>
+                    </a>
+                    <a href="https://music.youtube.com/channel/UCwAZ8REdRW9hu2kubFYSsqw" target="_blank" class="platform-link">
+                        <div class="platform-icon youtube-music"></div>
+                        <span>YouTube Music</span>
+                    </a>
+                    <a href="https://soundcloud.com/naamnei-music" target="_blank" class="platform-link">
+                        <div class="platform-icon soundcloud"></div>
+                        <span>SoundCloud</span>
+                    </a>
+                    <a href="https://music.amazon.in/artists/B0F2B6LZDN/naamnei" target="_blank" class="platform-link">
+                        <div class="platform-icon amazon-music"></div>
+                        <span>Amazon Music</span>
+                    </a>
+                    <a href="https://tidal.com/browse/artist/55902018" target="_blank" class="platform-link">
+                        <div class="platform-icon tidal"></div>
+                        <span>Tidal</span>
+                    </a>
                 </div>
-            </div>
-        </section>
 
-        <!-- Music Section -->
-        <section id="music" class="music section">
-            <div class="section-container">
-                <div class="section-content">
-                    <h2 class="section-title" data-scroll>Music</h2>
-                    <p class="section-subtitle" data-scroll>New music every month for your enjoyment</p>
-
-                    <div class="platform-links" data-scroll>
-                        <a href="https://soundcloud.com/naamnei" class="platform-link" target="_blank" data-scroll>
-                            <div class="platform-icon"><i class="fab fa-soundcloud"></i></div>
-                            <span>SoundCloud</span>
-                        </a>
-                        <a href="https://open.spotify.com/artist/naamnei" class="platform-link" target="_blank" data-scroll>
-                            <div class="platform-icon"><i class="fab fa-spotify"></i></div>
-                            <span>Spotify</span>
-                        </a>
-                        <a href="https://music.apple.com/artist/naamnei" class="platform-link" target="_blank" data-scroll>
-                            <div class="platform-icon"><i class="fab fa-apple"></i></div>
-                            <span>Apple Music</span>
-                        </a>
-                        <a href="https://music.amazon.com/artists/naamnei" class="platform-link" target="_blank" data-scroll>
-                            <div class="platform-icon"><i class="fab fa-amazon"></i></div>
-                            <span>Amazon Music</span>
-                        </a>
-                        <a href="https://tidal.com/artist/naamnei" class="platform-link" target="_blank" data-scroll>
-                            <div class="platform-icon"><i class="fas fa-music"></i></div>
-                            <span>Tidal</span>
-                        </a>
+                <div class="featured-tracks">
+                    <div class="track" data-color="#e42c6f">
+                        <div class="track-artwork"></div>
+                        <div class="track-info">
+                            <h3>Track Title</h3>
+                            <p>Album Name • 2023</p>
+                            <div class="track-links">
+                                <a href="#" class="track-link">Listen</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="featured-section" data-scroll>
-                        <h3 class="featured-title" data-scroll>Latest Releases</h3>
-                        <div class="tracks-grid">
-                            <div class="track-card" data-scroll>
-                                <div class="track-artwork"></div>
-                                <h4 class="track-title">Track Title 1</h4>
-                                <p class="track-info">Released: January 2023</p>
-                            </div>
-                            <div class="track-card" data-scroll>
-                                <div class="track-artwork"></div>
-                                <h4 class="track-title">Track Title 2</h4>
-                                <p class="track-info">Released: February 2023</p>
-                            </div>
-                            <div class="track-card" data-scroll>
-                                <div class="track-artwork"></div>
-                                <h4 class="track-title">Track Title 3</h4>
-                                <p class="track-info">Released: March 2023</p>
+                    <div class="track" data-color="#3b82f6">
+                        <div class="track-artwork"></div>
+                        <div class="track-info">
+                            <h3>Track Title</h3>
+                            <p>Album Name • 2023</p>
+                            <div class="track-links">
+                                <a href="#" class="track-link">Listen</a>
                             </div>
                         </div>
                     </div>
@@ -173,66 +95,64 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects section">
-            <div class="section-container">
-                <div class="section-content">
-                    <h2 class="section-title" data-scroll>Projects</h2>
-                    <p class="section-subtitle" data-scroll>Programming work and digital solutions</p>
-
-                    <div class="projects-grid">
-                        <div class="project-card" data-scroll>
-                            <div class="project-media"></div>
-                            <div class="project-details">
-                                <h3 class="project-title">Project One</h3>
-                                <p class="project-description">Description of the first programming project showcasing skills.</p>
-                            </div>
-                        </div>
-                        <div class="project-card reverse" data-scroll>
-                            <div class="project-media"></div>
-                            <div class="project-details">
-                                <h3 class="project-title">Project Two</h3>
-                                <p class="project-description">Description of the second programming project with technical details.</p>
-                            </div>
-                        </div>
-                    </div>
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">About Naamnei</h2>
+                <div class="about-text">
+                    <p>Naamnei is a dynamic musician and lyricist creating unique sonic landscapes that blend contemporary sounds with emotional depth.</p>
+                    <p>With a passion for musical innovation and storytelling through lyrics, Naamnei creates immersive audio experiences that resonate with listeners on a profound level.</p>
                 </div>
             </div>
+            <div class="about-image"></div>
         </section>
 
-        <!-- Connect Section -->
-        <section id="connect" class="connect section">
-            <div class="section-container">
-                <div class="section-content">
-                    <h2 class="section-title" data-scroll>Connect</h2>
-                    <p class="section-subtitle" data-scroll>Find me on social media</p>
-
-                    <div class="social-grid" data-scroll>
-                        <a href="https://instagram.com/naamnei" class="social-link" target="_blank" data-scroll>
-                            <div class="social-icon"><i class="fab fa-instagram"></i></div>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="https://youtube.com/naamnei" class="social-link" target="_blank" data-scroll>
-                            <div class="social-icon"><i class="fab fa-youtube"></i></div>
-                            <span>YouTube</span>
-                        </a>
-                        <a href="https://twitter.com/NaamneiOriginal" class="social-link" target="_blank" data-scroll>
-                            <div class="social-icon"><i class="fab fa-x-twitter"></i></div>
-                            <span>Twitter</span>
-                        </a>
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Connect</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/naamnei.original" target="_blank" class="social-link">
+                    <div class="social-icon instagram"></div>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://x.com/NaamneiOriginal" target="_blank" class="social-link">
+                    <div class="social-icon twitter"></div>
+                    <span>Twitter</span>
+                </a>
+            </div>
+            <div class="contact-person">
+                <div class="person-avatar">
+                    <div class="avatar-circle">
+                        <span>SB</span>
                     </div>
+                </div>
+                <div class="person-info">
+                    <h3>Sayantan Bakshi</h3>
+                    <p class="person-role">Management</p>
+                    <a href="mailto:sbongoog@gmail.com" class="contact-email">
+                        <span class="email-icon"></span>
+                        sbongoog@gmail.com
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2023 Naamnei. All rights reserved.</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">NAAMNEI</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#music">Music</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/naamnei.original" target="_blank" class="footer-social-icon instagram"></a>
+                <a href="https://x.com/NaamneiOriginal" target="_blank" class="footer-social-icon twitter"></a>
+            </div>
+            <p class="copyright">© 2023 Naamnei. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- scripts -->
-    <script src="/resources/js/script.js"></script>
+    <script src="resources/js/main.js"></script>
 </body>
 </html>
