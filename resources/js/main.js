@@ -535,6 +535,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize music notes
     addMusicNotes();
     animateMusicNotes();
+
+    // Update yearline in the footer
+    const yearline = document.getElementById('yearline');
+    if (yearline) {
+        const startYear = 2024;
+        const currentYear = new Date().getFullYear();
+
+        if (currentYear > startYear) {
+            yearline.textContent = `${startYear} \u2014 ${currentYear}`;
+        }
+    }
 });
 
 // Add page transition effects
