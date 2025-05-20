@@ -92,6 +92,17 @@ section {
   cursor: none;
 }
 
+/* Hide cursor on mobile devices */
+@media (hover: none), (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+
+  *:hover {
+    cursor: auto;
+  }
+}
+
 /* Noise Overlay */
 .noise-overlay {
   position: fixed;
