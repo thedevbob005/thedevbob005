@@ -92,6 +92,17 @@ section {
   cursor: none;
 }
 
+/* Hide cursor on mobile devices */
+@media (hover: none), (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+
+  *:hover {
+    cursor: auto;
+  }
+}
+
 /* Noise Overlay */
 .noise-overlay {
   position: fixed;
@@ -700,11 +711,11 @@ nav li {
   }
 
   .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .featured-tracks {

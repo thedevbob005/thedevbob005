@@ -14,20 +14,29 @@ let wheelDirection = 0;
 let lastScrollTime = 0;
 let scrollCooldown = 600; // ms between scroll actions
 
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
+// Check if device is mobile
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 
-// Cursor animation
-const animateCursor = () => {
-    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    requestAnimationFrame(animateCursor);
-};
-animateCursor();
+// Only set up cursor for non-mobile devices
+if (!isMobile && cursor) {
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // Cursor animation
+    const animateCursor = () => {
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+}
 
 // Cursor hover effects
 const setupCursorHoverEffects = () => {
+    // Skip for mobile devices
+    if (isMobile || !cursor) return;
+
     const hoverElements = document.querySelectorAll('a, button, .track, .platform-link, .social-link');
     hoverElements.forEach(link => {
         link.addEventListener('mouseenter', () => {
@@ -277,56 +286,38 @@ const initSectionScrolling = () => {
         });
     });
 
-    // Set up wheel event listener for auto-scrolling
-    window.addEventListener('wheel', handleWheelScroll, { passive: false });
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 
-    // Prevent default arrow key scrolling and use our custom scrolling
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-            e.preventDefault();
+    // Only set up special scroll behavior for desktop
+    if (!isMobile) {
+        // Set up wheel event listener for auto-scrolling
+        window.addEventListener('wheel', handleWheelScroll, { passive: false });
 
-            if (!allowScrolling || isScrolling) return;
+        // Prevent default arrow key scrolling and use our custom scrolling
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                e.preventDefault();
 
-            const now = Date.now();
-            if (now - lastScrollTime < scrollCooldown) return;
+                if (!allowScrolling || isScrolling) return;
 
-            lastScrollTime = now;
+                const now = Date.now();
+                if (now - lastScrollTime < scrollCooldown) return;
 
-            if (e.key === 'ArrowDown') {
-                nextSection();
-            } else {
-                prevSection();
+                lastScrollTime = now;
+
+                if (e.key === 'ArrowDown') {
+                    nextSection();
+                } else {
+                    prevSection();
+                }
             }
-        }
-    });
-
-    // Touch events for mobile
-    let touchStartY = 0;
-    let touchEndY = 0;
-
-    window.addEventListener('touchstart', (e) => {
-        touchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
-
-    window.addEventListener('touchend', (e) => {
-        if (!allowScrolling || isScrolling) return;
-
-        const now = Date.now();
-        if (now - lastScrollTime < scrollCooldown) return;
-
-        touchEndY = e.changedTouches[0].screenY;
-        const touchDiff = touchStartY - touchEndY;
-
-        if (Math.abs(touchDiff) < 50) return; // Ignore small swipes
-
-        lastScrollTime = now;
-
-        if (touchDiff > 0) {
-            nextSection();
-        } else {
-            prevSection();
-        }
-    }, { passive: true });
+        });
+    }
+    // For mobile, we keep touch events for navigation links but disable auto section scrolling
+    else {
+        console.log("Mobile device detected, disabling section scroll");
+    }
 
     // Initial active section
     updateActiveSection(getCurrentSection());
@@ -676,7 +667,18 @@ const animateMusicNotes = () => {
     let mouseX = 0;
     let mouseY = 0;
 
-    // Track mouse position
+    // Skip animation setup for mobile devices
+    if (isMobile) {
+        console.log("Mobile device detected, using simplified music note animation");
+        // For mobile, we just add a subtle floating animation using CSS
+        notes.forEach(note => {
+            // Add subtle floating class instead of mouse tracking
+            note.classList.add('floating');
+        });
+        return;
+    }
+
+    // Track mouse position for desktop
     document.addEventListener('mousemove', (e) => {
         mouseX = (e.clientX / window.innerWidth) - 0.5;
         mouseY = (e.clientY / window.innerHeight) - 0.5;
