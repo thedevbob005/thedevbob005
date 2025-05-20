@@ -711,6 +711,8 @@ nav li {
     justify-content: center;
   }
 
+  section {overflow: hidden}
+
   .logo {display: none}
 
   nav li {
