@@ -708,6 +708,17 @@ nav li {
 @media (max-width: 768px) {
   header {
     padding: 1rem;
+    justify-content: center;
+  }
+
+  .logo {display: none}
+
+  nav li {
+    margin-left: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 0.7rem;
   }
 
   .hero h1 {
