@@ -505,8 +505,6 @@ nav li {
   flex-direction: row;
   align-items: center;
   background: linear-gradient(180deg, rgba(15, 25, 55, 1), var(--background-color));
-}
-.about-section > * {
   margin: 0 auto;
   width: 1200px;
   max-width: 100%;
