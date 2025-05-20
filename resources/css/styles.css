@@ -539,7 +539,7 @@ nav li {
 
 .about-image {
   flex: 1;
-  height: 500px;
+  aspect-ratio: 1;
   background-image: url('../images/profile-picture.jpg');
   background-size: cover;
   background-position: center;
